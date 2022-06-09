@@ -1,0 +1,19 @@
+.container{
+    height: calc(100vh - 50px);
+    /* height: 100%; */
+    background-position: fixed;
+    /* width: 100vw; */
+    background-color: #EDE7EB;
+    padding-top: 2rem;
+    /* overflow: hidden; */
+    max-width:1200px;
+    border: solid;
+    margin: 0 auto;
+
+}
+
+@media screen and (max-width:530px) and (min-width:366px) {
+    .container{
+        padding: 0 2rem;
+    }
+}
