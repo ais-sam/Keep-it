@@ -3,12 +3,13 @@
     /* height: 100%; */
     background-position: fixed;
     /* width: 100vw; */
-    background-color: #EDE7EB;
+    /* background-color: #EDE7EB; */
     padding-top: 2rem;
     /* overflow: hidden; */
     max-width:1200px;
     border: solid;
     margin: 0 auto;
+    position: relative;
 
 }
 
@@ -16,4 +17,12 @@
     .container{
         padding: 0 2rem;
     }
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background-color: rgba(72, 72, 240, 0.678);
 }

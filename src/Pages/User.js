@@ -3,32 +3,41 @@ import styles from "./User.module.css"
 import Header from "../Components/Header/Header";
 import Input from "../Components/Input/Input";
 import CardList from "../Components/CardList/CardList";
+import EditCard from "../Components/EditCard/EditCard";
+import Modal from "../Components/Modal/Modal";
 
 export const NoteContext = createContext('default value')
 
 const User = () => {
     const[notes,setNotes] = useState([
-      {id:1,
-      title:'note ',
-      description:"this is a description"},
-      {id:2,
-        title:'note ',
-        description:"this is a description"},
-      {id:3,
-        title:'note ',
-        description:"this is a description"},
-      {id:4,
-        title:'note ',
-        description:"this is a description"},
+      // {id:1,
+      // title:'note ',
+      // description:"this is a description"},
+      // {id:2,
+      //   title:'note ',
+      //   description:"this is a description"},
+      // {id:3,
+      //   title:'note ',
+      //   description:"this is a description"},
+      // {id:4,
+      //   title:'note ',
+      //   description:"this is a description"},
     ])
+    const [edit,setEdit] = useState(false)
+    const [NoteToEdit,setNoteToEdit] = useState({})
+    // overlay state
+    // const [overlay,setOverlay] = useState(false)
   return (
     <>
         <Header />
-      <NoteContext.Provider value={{ notes, setNotes}}>
+      <NoteContext.Provider value={{ notes, setNotes,edit,setEdit,NoteToEdit,setNoteToEdit}}>
+        {/* {overlay?<div className={styles.overlay}></div>:null} */}
         <div className={styles.container}>
           <Input />
           <CardList/>
+          {/* <EditCard/> */}
         </div>
+        {edit&&<Modal/>}
       </NoteContext.Provider>
     </>
   );

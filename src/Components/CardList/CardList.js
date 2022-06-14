@@ -3,14 +3,17 @@ import { NoteContext } from '../../Pages/User'
 import styles from './CardList.module.css'
 import Card from './Card'
 
+
 export default function CardList() {
-    const {notes,deleted} = useContext(NoteContext)
+    const {notes} = useContext(NoteContext)
 
 
   return (
     <div className={styles.cardList}>
-        {notes.length!==0 ? notes.map(({title,description,id,image})=>{
-            return <Card key={id} title={title} description={description} id={id} image={image}/>
+      {console.log('==== notes in cardList ======')}
+      {console.log(notes)}
+        {notes.length!==0 ? notes.map((note)=>{
+            return <Card key={note.id} note ={note} />
         }):null}
 
     </div>

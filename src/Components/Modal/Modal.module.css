@@ -1,0 +1,7 @@
+.modal_container{
+    background-color: rgba(0, 0, 0, 0.39);
+    width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    z-index: 10;
+}

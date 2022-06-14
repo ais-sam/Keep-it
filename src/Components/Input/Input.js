@@ -18,23 +18,7 @@ export default function Input() {
     const handlInput=(e)=>{
         const key = e.target.id;
         const value = e.target.value;
-        // const file = e.target.file
         setNewNote((prev)=>({...prev,[key]:value}))}
-        //////
-
-        // setNewNote((prev)=>{
-
-        //     if (key==="image") {
-        //         const newImage = e.target.files[0]
-        //         const imgUrl = URL.createObjectURL(newImage)
-        //         setNewNote({...prev,[key]:imgUrl})
-        //     }else{
-        //         setNewNote({...prev,[key]:value})
-        //     }
-            
-        // })}
-
-        //////
     
 
     // Update the image state
@@ -54,10 +38,13 @@ export default function Input() {
         e.preventDefault();
         newNote.id=nanoid()
         newNote.image = image
-        setNotes((prev)=>(setNotes([...prev,newNote])))
-        setNewNote({title:'',description:''})
-        // console.log(newNote.file)
         
+        if (newNote.title.length>0 || newNote.description.length>0 || newNote.image.length>0) {
+            setNotes((prev)=>(setNotes([...prev,newNote])))
+            setNewNote({title:'',description:'',image:''})
+            setImage('')
+        }
+   
     }
 
   return (
@@ -66,10 +53,9 @@ export default function Input() {
     <form onSubmit={addNewNote}>
         <input placeholder='Enter title' type="text" value={newNote.title} id="title" onChange={handlInput}></input>
         <textarea placeholder='Enter details' rows={3} cols={30} value={newNote.description} id="description" onChange={handlInput}></textarea>
-        <img src={image}/>
         <div className={styles.buttons}>
                 <Button type='submit'/>
-                <input type="file" accept="image/*" id="image" onChange={imgChangeHandler}/>
+                <input type="file" accept="image/*" id="image" value={newNote.image} onChange={imgChangeHandler}/>
         </div>
     </form>
       </>
