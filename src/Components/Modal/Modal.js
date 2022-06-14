@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM  from 'react-dom'
-import EditCard from '../EditCard/EditCard'
+import EditNote from '../EditNote/EditNote'
 import BackDrop from './BackDrop'
 
 export default function Modal() {
@@ -12,7 +12,7 @@ export default function Modal() {
             {ReactDOM.createPortal(
                 <>
                     <BackDrop/>
-                    <EditCard/>
+                    <EditNote/>
                 </>
             ,document.getElementById('modal')
             )}

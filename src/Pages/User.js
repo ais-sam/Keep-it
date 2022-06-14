@@ -2,8 +2,8 @@ import React, { useState,createContext } from "react";
 import styles from "./User.module.css"
 import Header from "../Components/Header/Header";
 import Input from "../Components/Input/Input";
-import CardList from "../Components/CardList/CardList";
-import EditCard from "../Components/EditCard/EditCard";
+import NoteList from "../Components/NoteList/NoteList";
+import EditNote from "../Components/EditNote/EditNote";
 import Modal from "../Components/Modal/Modal";
 
 export const NoteContext = createContext('default value')
@@ -34,7 +34,7 @@ const User = () => {
         {/* {overlay?<div className={styles.overlay}></div>:null} */}
         <div className={styles.container}>
           <Input />
-          <CardList/>
+          <NoteList/>
           {/* <EditCard/> */}
         </div>
         {edit&&<Modal/>}
