@@ -9,9 +9,7 @@ export default function NoteList() {
 
 
   return (
-    <div className={styles.noteList}>
-      {console.log('==== notes in NoteList ======')}
-      {console.log(notes)}
+    <div className={notes.length>2?styles.noteList:styles.flexNotes}>
         {notes.length!==0 ? notes.map((note)=>{
             return <Note key={note.id} note ={note} />
         }):null}

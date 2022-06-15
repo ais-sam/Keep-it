@@ -33,7 +33,7 @@ export default function Note({note}) {
   return (
     <>
     
-    <div className={notes.length>1? styles.note : styles.onenote}>
+    <div className={styles.note}>
         <div className={styles.note__content}>
             <div className={styles.note__img}>
                 <img  src={note.image}/>

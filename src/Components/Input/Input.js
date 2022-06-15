@@ -23,7 +23,6 @@ export default function Input() {
 
     // Update the image state
     const imgChangeHandler = (e)=>{
-        console.log('changed')
         const newImage = e.target.files[0]
         const imgUrl = URL.createObjectURL(newImage)
         setImage(imgUrl)

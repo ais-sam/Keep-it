@@ -39,15 +39,22 @@
 }
 
 .img_container img{
-    /* width: 100%; */
     max-width: 100%;
 }
 
 .edit .edit__btns{
+    /* margin-top: 1rem; */
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    /* bottom: 5px;
+    right: 5px; */
+    bottom: 0;
     cursor: pointer;
+    background-color: #ff6a3daf;
+    width: 100%;
+    display: flex;
+    padding: 0.5rem;
+    justify-content: flex-end;
+    
 }
 
 .edit__btns button{
