@@ -1,6 +1,6 @@
 import React ,{useContext, useState,createContext} from 'react'
 import styles from "./NoteList.module.css"
-import { NoteContext } from '../../Pages/User'
+import { NoteContext } from '../../Pages/User/User'
 import {MdDeleteForever} from 'react-icons/md'
 import { FaEdit,FaTrashAlt } from "react-icons/fa";
 // import eggs from '../../imgs/eggs.jpeg'

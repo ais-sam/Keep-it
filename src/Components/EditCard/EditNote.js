@@ -1,9 +1,10 @@
 import React,{useContext, useState} from 'react'
 import { NoteContext } from '../../Pages/User/User'
-import styles from "./EditNote.module.css"
+// import { CardContext } from '../CardList/Card'
+import styles from "./EditCard.module.css"
 import { FaEdit,FaTrashAlt } from "react-icons/fa";
 
-export default function EditNote() {
+export default function EditCard() {
 
     // const {setEdit,note,notes,setNotes} = useContext(CardContext)
     const {NoteToEdit,setNoteToEdit,edit,setEdit,notes,setNotes} = useContext(NoteContext)
@@ -27,7 +28,7 @@ export default function EditNote() {
         setEdit(false)
         const id = NoteToEdit.id
         // const description = note.description
-        // const image = NoteToEdit.image
+        const image = NoteToEdit.image
         const actualNote = {
             id,
             title,
@@ -45,32 +46,17 @@ export default function EditNote() {
     const handlDelete=(e)=>{
         e.preventDefault()
        console.log('image DELETED----------')
-       setImage(null)
     }
-
-    // Update the image state
-    const imgChangeHandler = (e)=>{
-        const newImage = e.target.files[0]
-        const imgUrl = URL.createObjectURL(newImage)
-        setImage(imgUrl)
-    }
-
-
   return (
     <div className={styles.edit}>
         <h3>Edit Note</h3>
-        {image ?
-        <div className={styles.img_container}>
-            <img src={image} className={styles.edit_img}/>
-            <div className={styles.edit__btns}>
-                <button type='button' className={styles.edit_btn}  ><FaEdit className={styles.edit_icon}/></button>
-                <button className='delete-btn' onClick={handlDelete}><FaTrashAlt className={styles.delete_icon}/></button>
-                <input type="file" accept="image/*" id="image" value={undefined} onChange={imgChangeHandler}/>
+            <div className={styles.img_container}>
+                <img src={image} className={styles.edit_img}/>
+                <div className={styles.edit__btns}>
+                    <button type='button' className={styles.edit_btn}  ><FaEdit className={styles.edit_icon}/></button>
+                    <button className='delete-btn' onClick={handlDelete}><FaTrashAlt className={styles.delete_icon}/></button>
+                </div>
             </div>
-        </div> :
-                <input type="file" accept="image/*" id="image" value={image} onChange={imgChangeHandler}/>
-          }
-            
         <form>
             <input type="text" placeholder="Title" value={title} name="title" onChange={(e)=>setTitle(e.target.value)} ></input>
             <input type="text" placeholder="Note"  value={description} name="description" onChange={(e)=>setDescription(e.target.value)} ></input>
@@ -79,4 +65,3 @@ export default function EditNote() {
     </div>
   )
 }
-

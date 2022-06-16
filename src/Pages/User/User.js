@@ -1,10 +1,9 @@
 import React, { useState,createContext } from "react";
 import styles from "./User.module.css"
-import Header from "../Components/Header/Header";
-import Input from "../Components/Input/Input";
-import NoteList from "../Components/NoteList/NoteList";
-import EditNote from "../Components/EditNote/EditNote";
-import Modal from "../Components/Modal/Modal";
+import Header from "../../Components/Header/Header";
+import Input from "../../Components/Input/Input";
+import NoteList from "../../Components/NoteList/NoteList";
+import Modal from "../../Components/Modal/Modal";
 
 export const NoteContext = createContext('default value')
 

@@ -1,7 +1,7 @@
-import React ,{useContext, useState} from 'react'
+import React ,{useContext, useState,useRef} from 'react'
 import Button from './Button'
 import styles from "./Input.module.css"
-import {NoteContext} from '../../Pages/User'
+import {NoteContext} from '../../Pages/User/User'
 import {nanoid} from "nanoid"
 
 
@@ -27,6 +27,15 @@ export default function Input() {
         const imgUrl = URL.createObjectURL(newImage)
         setImage(imgUrl)
     }
+
+    // Create a reference to the hidden file input element
+    const hiddenFileInput = useRef(null)
+
+     // Programatically click the hidden file input element
+    // when the Button component is clicked
+    const handleClick = event => {
+      hiddenFileInput.current.click();
+    };
 
     //======================================
     
@@ -54,7 +63,10 @@ export default function Input() {
         <textarea placeholder='Enter details' rows={3} cols={30} value={newNote.description} id="description" onChange={handlInput}></textarea>
         <div className={styles.buttons}>
                 <Button type='submit'/>
-                <input type="file" accept="image/*" id="image" value={newNote.image} onChange={imgChangeHandler}/>
+                <label>
+                    <button onClick={handleClick}>img</button>
+                </label>
+                    <input type="file" accept="image/*" className={styles.img_input} value={newNote.image} onChange={imgChangeHandler} ref={hiddenFileInput}/>
         </div>
     </form>
       </>

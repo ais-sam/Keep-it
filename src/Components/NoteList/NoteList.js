@@ -1,5 +1,5 @@
 import React,{useContext} from 'react'
-import { NoteContext } from '../../Pages/User'
+import { NoteContext } from '../../Pages/User/User'
 import styles from './NoteList.module.css'
 import Note from './Note'
 
