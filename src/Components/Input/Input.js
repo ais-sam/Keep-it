@@ -3,6 +3,8 @@ import Button from './Button'
 import styles from "./Input.module.css"
 import {NoteContext} from '../../Pages/User/User'
 import {nanoid} from "nanoid"
+import ImgBtn from '../ImgBtn/ImgBtn'
+import { FaImage} from "react-icons/fa";
 
 
 export default function Input() {
@@ -55,20 +57,47 @@ export default function Input() {
    
     }
 
+    // test change 
+    function testChange(params) {
+        console.log("+++++++++++********++++++++333");
+    }
+
   return (
-      <>
-        
-    <form onSubmit={addNewNote}>
-        <input placeholder='Enter title' type="text" value={newNote.title} id="title" onChange={handlInput}></input>
-        <textarea placeholder='Enter details' rows={3} cols={30} value={newNote.description} id="description" onChange={handlInput}></textarea>
+    <>
+      <form onSubmit={addNewNote}>
+        <input
+          placeholder="Enter title"
+          type="text"
+          value={newNote.title}
+          id="title"
+          onChange={handlInput}
+        ></input>
+        <textarea
+          placeholder="Enter details"
+          rows={3}
+          cols={30}
+          value={newNote.description}
+          id="description"
+          onChange={handlInput}
+        ></textarea>
+
         <div className={styles.buttons}>
-                <Button type='submit'/>
-                <label>
-                    <button onClick={handleClick}>img</button>
-                </label>
-                    <input type="file" accept="image/*" className={styles.img_input} value={newNote.image} onChange={imgChangeHandler} ref={hiddenFileInput}/>
+          <ImgBtn value={newNote.image} change={imgChangeHandler} ><FaImage/></ImgBtn>
+          <Button type="submit" />
+          {/* <label>
+            <button onClick={handleClick}>img</button>
+          </label> */}
+
+          {/* <input
+            type="file"
+            accept="image/*"
+            className={styles.img_input}
+            value={newNote.image}
+            onChange={imgChangeHandler}
+            ref={hiddenFileInput}
+          /> */}
         </div>
-    </form>
-      </>
-  )
+      </form>
+    </>
+  );
 }

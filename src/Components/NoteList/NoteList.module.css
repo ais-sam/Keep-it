@@ -44,17 +44,19 @@
     align-items: flex-start;
     gap: 1rem; */
 }
-/* @media screen and (max-width:931px) {
-    .noteList2{
-        justify-content: center;
+@media screen and (max-width:710px) {
+    .flexNotes{
+        justify-content:center;
     }
-} */
-/* @media screen and (min-width:43em) {
-    .noteList{
-        grid-template-columns:(2,1fr)
+}
 
+@media screen and (max-width:606px) {
+    .flexNotes{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
     }
-} */
+}
+
 
 
 

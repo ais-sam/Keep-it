@@ -1,7 +1,7 @@
 .edit{
     background-color:white;
     max-width: 300px;
-    padding: 1rem;
+    padding: 1.2rem;
     border-radius: 5px;
     position: absolute;
     left: 50%;
@@ -14,10 +14,16 @@
     text-align: center;
     margin-bottom: 1rem;
 }
+
+.edit_img{
+    display: block;
+}
+
 .edit form{
     display: flex;
     gap: 0.5rem;
     padding: 0;
+    margin: 1rem 0 0 0;
 }
 
 .edit form input{
@@ -52,7 +58,7 @@
     background-color: #ff6a3daf;
     width: 100%;
     display: flex;
-    padding: 0.5rem;
+    padding: 0.1rem 0.5rem;
     justify-content: flex-end;
     
 }
@@ -74,4 +80,8 @@
     margin-left: 7px;
     color: white;
     cursor: pointer;
+}
+
+.uuu{
+    background-color: blue;
 }

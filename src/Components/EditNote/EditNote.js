@@ -1,7 +1,8 @@
 import React,{useContext, useState} from 'react'
 import { NoteContext } from '../../Pages/User/User'
 import styles from "./EditNote.module.css"
-import { FaEdit,FaTrashAlt } from "react-icons/fa";
+import { FaEdit,FaTrashAlt} from "react-icons/fa";
+import ImgBtn from "../ImgBtn/ImgBtn"
 
 export default function EditNote() {
 
@@ -55,6 +56,10 @@ export default function EditNote() {
         setImage(imgUrl)
     }
 
+    // add img button style
+    const addImgStyle={
+        backgroundColor:'blue'
+    }
 
   return (
     <div className={styles.edit}>
@@ -63,12 +68,14 @@ export default function EditNote() {
         <div className={styles.img_container}>
             <img src={image} className={styles.edit_img}/>
             <div className={styles.edit__btns}>
-                <button type='button' className={styles.edit_btn}  ><FaEdit className={styles.edit_icon}/></button>
+                <ImgBtn  changeHandler={imgChangeHandler}><FaEdit className={styles.edit_icon}/></ImgBtn>
+                {/* <button type='button' className={styles.edit_btn}  ><FaEdit className={styles.edit_icon}/></button> */}
                 <button className='delete-btn' onClick={handlDelete}><FaTrashAlt className={styles.delete_icon}/></button>
-                <input type="file" accept="image/*" id="image" value={undefined} onChange={imgChangeHandler}/>
+                {/* <input type="file" accept="image/*" id="image" value={undefined} onChange={imgChangeHandler}/> */}
             </div>
         </div> :
-                <input type="file" accept="image/*" id="image" value={image} onChange={imgChangeHandler}/>
+                // <input type="file" accept="image/*" id="image" value={image} onChange={imgChangeHandler}/>
+                <ImgBtn  changeHandler={imgChangeHandler} styles={addImgStyle}>Add image</ImgBtn>
           }
             
         <form>
