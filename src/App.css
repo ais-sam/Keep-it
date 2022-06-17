@@ -6,4 +6,12 @@
 }
 body{
     background-color: #EDE7EB;
+    position: relative;
+}
+
+#modal{
+    background-color: red;
+    z-index: 1000;
+    /* height: 1000vh; */
+    /* position: relative; */
 }

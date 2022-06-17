@@ -10,3 +10,24 @@
     border-radius: 3px;
     cursor: pointer;
 }
+.img_button_modal{
+    background-color: transparent;
+    padding: 5px 8px;
+    width: 90px;
+    /* margin-left: auto;
+    margin-left: 100px; */
+    /* margin: 0 auto;
+    margin-left: 50%;
+    margin-right: auto; */
+
+    border:  solid 1px #FF6A3D;
+    border-radius: 3px;
+    color: #FF6A3D;
+    cursor: pointer;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

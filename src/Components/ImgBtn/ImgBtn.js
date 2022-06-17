@@ -17,7 +17,9 @@ export default function ImgBtn(props) {
   return (
     <>
       <label>
-        <button onClick={handleClick} className={styles.img_button}>{props.children}</button>
+        <button onClick={handleClick} className={ props.edit == "modal" ? styles.img_button_modal : styles.img_button}>
+          {props.children}
+        </button>
       </label>
 
       <input

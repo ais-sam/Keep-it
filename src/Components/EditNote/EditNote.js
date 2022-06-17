@@ -1,7 +1,7 @@
 import React,{useContext, useState} from 'react'
 import { NoteContext } from '../../Pages/User/User'
 import styles from "./EditNote.module.css"
-import { FaEdit,FaTrashAlt} from "react-icons/fa";
+import { FaEdit,FaTrashAlt,FaTimes} from "react-icons/fa";
 import ImgBtn from "../ImgBtn/ImgBtn"
 
 export default function EditNote() {
@@ -64,6 +64,7 @@ export default function EditNote() {
   return (
     <div className={styles.edit}>
         <h3>Edit Note</h3>
+        <button className={styles.exit_btn} onClick={()=>setEdit(false)}><FaTimes className={styles.exit_icon}/></button>
         {image ?
         <div className={styles.img_container}>
             <img src={image} className={styles.edit_img}/>
@@ -75,7 +76,7 @@ export default function EditNote() {
             </div>
         </div> :
                 // <input type="file" accept="image/*" id="image" value={image} onChange={imgChangeHandler}/>
-                <ImgBtn  changeHandler={imgChangeHandler} styles={addImgStyle}>Add image</ImgBtn>
+                <ImgBtn  changeHandler={imgChangeHandler} edit='modal'>Add image</ImgBtn>
           }
             
         <form>
