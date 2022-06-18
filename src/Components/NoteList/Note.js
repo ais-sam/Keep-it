@@ -39,7 +39,7 @@ export default function Note({note}) {
                 <img  src={note.image}/>
             </div>
             <h2 className={styles.note__title}>{note.title}</h2>
-            <p className={styles.note__description}>{note.description}</p>
+            <p className={styles.note__description}>{note.text}</p>
         </div>
         <div className={styles.note__footer}>
             <button type='button' className={styles.edit_btn} onClick={handlEdit} ><FaEdit className={styles.edit_icon}/></button>

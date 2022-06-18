@@ -5,13 +5,17 @@ main{
     justify-content: center;
     width: 100vw;
     min-height: 100vh;
-    background: linear-gradient(#FF6A3D,#1A2238);
+    /* background: linear-gradient(#FF6A3D,#1A2238); */
+    /* background-image: linear-gradient(to right top, #1a2238, #11224e, #0a1f62, #161874, #2e0283); */
+    background-color: #1A2238;
 }
 
 .container{
     display: flex;
     flex-direction: column;
     color: white;
+    /* background-color: white; */
+    border-radius: 5px;
     align-items: center;
     gap: 1.5rem;
     max-width: 600px;

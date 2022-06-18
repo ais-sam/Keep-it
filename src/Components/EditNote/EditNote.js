@@ -11,7 +11,7 @@ export default function EditNote() {
     // card values state
     const [image,setImage] = useState(NoteToEdit.image)
     const [title,setTitle] = useState(NoteToEdit.title)
-    const [description,setDescription] = useState(NoteToEdit.description)
+    const [text,setText] = useState(NoteToEdit.text)
     // const [updatedNote,setNoteToEdit] = useState(NoteToEdit)
     
 
@@ -32,7 +32,7 @@ export default function EditNote() {
         const actualNote = {
             id,
             title,
-            description,
+            text,
             image
         }
         const editNote = (id,updatedNote)=>{
@@ -81,7 +81,7 @@ export default function EditNote() {
             
         <form>
             <input type="text" placeholder="Title" value={title} name="title" onChange={(e)=>setTitle(e.target.value)} ></input>
-            <input type="text" placeholder="Note"  value={description} name="description" onChange={(e)=>setDescription(e.target.value)} ></input>
+            <input type="text" placeholder="Note"  value={text} name="text" onChange={(e)=>setText(e.target.value)} ></input>
             <button type='submit' onClick={handlSave} className={styles.save_btn}>Save</button>
         </form>
     </div>

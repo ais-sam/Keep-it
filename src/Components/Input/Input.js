@@ -12,7 +12,7 @@ export default function Input() {
     // UPDATE NEW NOTE LOCALLY
 
     // local state
-    const [newNote,setNewNote] = useState({title:'',description:'',image:''})
+    const [newNote,setNewNote] = useState({title:'',text:'',image:''})
     const [image,setImage] = useState('')
 
     
@@ -28,6 +28,7 @@ export default function Input() {
         const newImage = e.target.files[0]
         const imgUrl = URL.createObjectURL(newImage)
         setImage(imgUrl)
+        console.log('img added')
     }
 
     // Create a reference to the hidden file input element
@@ -49,9 +50,9 @@ export default function Input() {
         newNote.id=nanoid()
         newNote.image = image
         
-        if (newNote.title.length>0 || newNote.description.length>0 || newNote.image.length>0) {
+        if (newNote.title.length>0 || newNote.text.length>0 || newNote.image.length>0) {
             setNotes((prev)=>(setNotes([...prev,newNote])))
-            setNewNote({title:'',description:'',image:''})
+            setNewNote({title:'',text:'',image:''})
             setImage('')
         }
    
@@ -62,40 +63,31 @@ export default function Input() {
         console.log("+++++++++++********++++++++333");
     }
 
+
+    const [expand,setExpand] = useState(false)
   return (
     <>
-      <form onSubmit={addNewNote}>
+      <form onSubmit={addNewNote} className={expand ? styles.show : ''}>
         <input
-          placeholder="Enter title"
+          placeholder={expand ? "Title": "Add Note ..."}
           type="text"
           value={newNote.title}
           id="title"
           onChange={handlInput}
+          onClick={()=>setExpand(true)}
         ></input>
         <textarea
-          placeholder="Enter details"
+          placeholder="َ Add Note ..."
           rows={3}
           cols={30}
-          value={newNote.description}
-          id="description"
+          value={newNote.text}
+          id="text"
           onChange={handlInput}
         ></textarea>
 
         <div className={styles.buttons}>
-          <ImgBtn value={newNote.image} change={imgChangeHandler} ><FaImage/></ImgBtn>
-          <Button type="submit" />
-          {/* <label>
-            <button onClick={handleClick}>img</button>
-          </label> */}
-
-          {/* <input
-            type="file"
-            accept="image/*"
-            className={styles.img_input}
-            value={newNote.image}
-            onChange={imgChangeHandler}
-            ref={hiddenFileInput}
-          /> */}
+          <ImgBtn value={newNote.image}  changeHandler={imgChangeHandler} ><FaImage className={styles.img_icon} size="xs"/></ImgBtn>
+          <button type="submit" className={styles.add_btn}>+</button>
         </div>
       </form>
     </>

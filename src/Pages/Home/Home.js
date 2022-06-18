@@ -1,17 +1,19 @@
 import React from 'react'
 import styles from "./Home.module.css"
+import { Link } from "react-router-dom";
 import homeImg from "../../imgs/home_img.svg"
+import logo from "../../imgs/logo.svg"
 
 export default function Home() {
   return (
     <main>
         <div className={styles.container}>
             <div className={styles.home_img}>
-                <img src={homeImg} alt="keep it"/>
+                <img src={logo} alt="keep it"/>
             </div>
             <div className={styles.home_text}>
                 <h2>All your notes in one place</h2>
-                <a href='#' className={styles.home_btn}>Start</a>
+                <Link to="/user" className={styles.home_btn}>Start</Link>
             </div>
         </div>
     </main>
