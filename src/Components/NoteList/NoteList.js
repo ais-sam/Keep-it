@@ -5,12 +5,12 @@ import Note from './Note'
 
 
 export default function NoteList() {
-    const {notes} = useContext(NoteContext)
+    const {notes,filtredNotes} = useContext(NoteContext)
 
 
   return (
     <div className={notes.length>2?styles.noteList:styles.flexNotes}>
-        {notes.length!==0 ? notes.map((note)=>{
+        {notes.length!==0 ? filtredNotes.map((note)=>{
             return <Note key={note.id} note ={note} />
         }):null}
 

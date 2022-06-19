@@ -1,0 +1,13 @@
+.search{
+    border: none;
+    background-color: #222e50;
+    padding: 0.5rem ;
+    border-radius: 3px;
+    flex: 1;
+    max-width: 60%;
+}
+.search:focus{
+    outline: none;
+    background-color: aliceblue;
+}
+

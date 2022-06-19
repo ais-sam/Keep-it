@@ -24,12 +24,13 @@ const User = () => {
     ])
     const [edit,setEdit] = useState(false)
     const [NoteToEdit,setNoteToEdit] = useState({})
+    const [filtredNotes,setFiltredNotes] = useState([])
     // overlay state
     // const [overlay,setOverlay] = useState(false)
   return (
     <>
+      <NoteContext.Provider value={{ notes, setNotes,edit,setEdit,NoteToEdit,setNoteToEdit,filtredNotes,setFiltredNotes}}>
         <Header />
-      <NoteContext.Provider value={{ notes, setNotes,edit,setEdit,NoteToEdit,setNoteToEdit}}>
         {/* {overlay?<div className={styles.overlay}></div>:null} */}
         <div className={styles.container}>
           <Input />

@@ -16,13 +16,22 @@ header {
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    position: relative;
   }
   
 .logo{
     width: 100px;
+    position: absolute;
+    left: 1rem ;
 }
 .logo img{
   width: 100%;
+}
+
+@media screen and (max-width:737px) {
+  header nav{
+    justify-content: flex-end;
+  }
 }
