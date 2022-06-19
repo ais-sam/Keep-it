@@ -7,16 +7,17 @@ import styles from "./Search.module.css"
 
 
 export default function Search() {
-    const {notes,setNotes,setFiltredNotes} = useContext(NoteContext)
-    const [search, setSearch] = useState('')
-
+    const {notes,setNotes,search,setSearch} = useContext(NoteContext)
     const searchChangeHandler = (e)=>{
         const searchValue = e.target.value
         setSearch(e.target.value)
-        const filtredNotes = notes?notes.filter((note)=>{
-            return note.title.includes(searchValue)
-        }):'';
-        setFiltredNotes(filtredNotes)
+        // const filtredNotes = notes?notes.filter((note)=>{
+        //     return note.title.includes(searchValue)
+        // }):[];
+        const filtredNotes = notes.filter((note)=>{
+          return note.title.includes(searchValue)
+      });
+        // setFiltredNotes(filtredNotes)
         
     }
   return (

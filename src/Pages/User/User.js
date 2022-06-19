@@ -1,4 +1,4 @@
-import React, { useState,createContext } from "react";
+import React, { useState,createContext, useEffect, useLayoutEffect } from "react";
 import styles from "./User.module.css"
 import Header from "../../Components/Header/Header";
 import Input from "../../Components/Input/Input";
@@ -24,17 +24,37 @@ const User = () => {
     ])
     const [edit,setEdit] = useState(false)
     const [NoteToEdit,setNoteToEdit] = useState({})
-    const [filtredNotes,setFiltredNotes] = useState([])
-    // overlay state
-    // const [overlay,setOverlay] = useState(false)
+    const [search,setSearch] = useState('')
+
+    const notesHandler = ()=>{
+      if (search.length!==0) {
+        const filtredNotes = notes.filter((note)=> note.title.includes(search))
+        return filtredNotes
+      }
+      return notes
+    }
+    // Retreive notes from Local Storage
+    useEffect(()=>{
+      const savedNotes = JSON.parse(localStorage.getItem('notes-List'))
+      if (savedNotes) {
+        setNotes(savedNotes)
+      }
+    }
+    ,[])
+
+    // Add notes to Local Storage
+    useEffect(()=>{
+      localStorage.setItem('notes-List',JSON.stringify(notes))
+    }
+    ,[notes])
   return (
     <>
-      <NoteContext.Provider value={{ notes, setNotes,edit,setEdit,NoteToEdit,setNoteToEdit,filtredNotes,setFiltredNotes}}>
+      <NoteContext.Provider value={{ notes, setNotes,edit,setEdit,NoteToEdit,setNoteToEdit,setSearch,search}}>
         <Header />
         {/* {overlay?<div className={styles.overlay}></div>:null} */}
         <div className={styles.container}>
           <Input />
-          <NoteList/>
+          <NoteList notesList={notesHandler()}/>
           {/* <EditCard/> */}
         </div>
         {edit&&<Modal/>}

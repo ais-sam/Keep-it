@@ -6,29 +6,18 @@ import ImgBtn from "../ImgBtn/ImgBtn"
 
 export default function EditNote() {
 
-    // const {setEdit,note,notes,setNotes} = useContext(CardContext)
     const {NoteToEdit,setNoteToEdit,edit,setEdit,notes,setNotes} = useContext(NoteContext)
-    // card values state
+
     const [image,setImage] = useState(NoteToEdit.image)
     const [title,setTitle] = useState(NoteToEdit.title)
     const [text,setText] = useState(NoteToEdit.text)
-    // const [updatedNote,setNoteToEdit] = useState(NoteToEdit)
-    
 
-    // handl input change
-    const handlInput = (e)=>{
-        const key = e.target.name;
-        const value = e.target.value;
-        // setTitle(value)
-        setNoteToEdit(prev=>{setNoteToEdit({...prev,[key]:value})})
-    }
+
 
     const handlSave=(e)=>{
         e.preventDefault()
         setEdit(false)
         const id = NoteToEdit.id
-        // const description = note.description
-        // const image = NoteToEdit.image
         const actualNote = {
             id,
             title,
@@ -42,7 +31,7 @@ export default function EditNote() {
         editNote(NoteToEdit.id,actualNote)
     }
 
-    // handl delete
+    // handle delete
     const handlDelete=(e)=>{
         e.preventDefault()
        console.log('image DELETED----------')
@@ -56,10 +45,6 @@ export default function EditNote() {
         setImage(imgUrl)
     }
 
-    // add img button style
-    const addImgStyle={
-        backgroundColor:'blue'
-    }
 
   return (
     <div className={styles.edit}>
@@ -70,13 +55,10 @@ export default function EditNote() {
             <img src={image} className={styles.edit_img}/>
             <div className={styles.edit__btns}>
                 <ImgBtn  changeHandler={imgChangeHandler}><FaEdit className={styles.edit_icon}/></ImgBtn>
-                {/* <button type='button' className={styles.edit_btn}  ><FaEdit className={styles.edit_icon}/></button> */}
                 <button className='delete-btn' onClick={handlDelete}><FaTrashAlt className={styles.delete_icon}/></button>
-                {/* <input type="file" accept="image/*" id="image" value={undefined} onChange={imgChangeHandler}/> */}
             </div>
-        </div> :
-                // <input type="file" accept="image/*" id="image" value={image} onChange={imgChangeHandler}/>
-                <ImgBtn  changeHandler={imgChangeHandler} edit='modal'>Add image</ImgBtn>
+        </div> : 
+            <ImgBtn  changeHandler={imgChangeHandler} edit='modal'>Add image</ImgBtn>
           }
             
         <form>
