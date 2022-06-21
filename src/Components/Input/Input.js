@@ -1,5 +1,4 @@
-import React ,{useContext, useState,useRef} from 'react'
-import Button from './Button'
+import React ,{useContext, useState} from 'react'
 import styles from "./Input.module.css"
 import {NoteContext} from '../../Pages/User/User'
 import {nanoid} from "nanoid"
@@ -28,22 +27,12 @@ export default function Input() {
         const newImage = e.target.files[0]
         const imgUrl = URL.createObjectURL(newImage)
         setImage(imgUrl)
-        console.log('img added')
     }
-
-    // Create a reference to the hidden file input element
-    const hiddenFileInput = useRef(null)
-
-     // Programatically click the hidden file input element
-    // when the Button component is clicked
-    const handleClick = event => {
-      hiddenFileInput.current.click();
-    };
 
     //======================================
     
     // UPDATE THE LIST OF NOTES
-    const {notes,setNotes} =useContext(NoteContext)
+    const {setNotes} =useContext(NoteContext)
     // Add new note 
     const addNewNote = (e)=>{
         e.preventDefault();
@@ -57,12 +46,6 @@ export default function Input() {
         }
    
     }
-
-    // test change 
-    function testChange(params) {
-        console.log("+++++++++++********++++++++333");
-    }
-
 
     const [expand,setExpand] = useState(false)
   return (

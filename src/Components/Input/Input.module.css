@@ -14,18 +14,13 @@ form{
 form.show{
     height: 100%;
     padding: 5px;
-    /* background-color: red; */
-
 }
-
-
 
 form input,textarea{
     padding: 0.5rem;
     border: none;
     outline: none;
 }
-
 
 textarea{
     resize: none;

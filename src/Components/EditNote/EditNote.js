@@ -6,7 +6,7 @@ import ImgBtn from "../ImgBtn/ImgBtn"
 
 export default function EditNote() {
 
-    const {NoteToEdit,setNoteToEdit,edit,setEdit,notes,setNotes} = useContext(NoteContext)
+    const {NoteToEdit,setEdit,notes,setNotes} = useContext(NoteContext)
 
     const [image,setImage] = useState(NoteToEdit.image)
     const [title,setTitle] = useState(NoteToEdit.title)
@@ -25,7 +25,7 @@ export default function EditNote() {
             image
         }
         const editNote = (id,updatedNote)=>{
-            setNotes(notes.map((note)=>note.id==id?updatedNote:note))
+            setNotes(notes.map((note)=>note.id===id?updatedNote:note))
         }
 
         editNote(NoteToEdit.id,actualNote)
@@ -52,7 +52,7 @@ export default function EditNote() {
         <button className={styles.exit_btn} onClick={()=>setEdit(false)}><FaTimes className={styles.exit_icon}/></button>
         {image ?
         <div className={styles.img_container}>
-            <img src={image} className={styles.edit_img}/>
+            <img src={image} className={styles.edit_img} alt="new img"/>
             <div className={styles.edit__btns}>
                 <ImgBtn  changeHandler={imgChangeHandler}><FaEdit className={styles.edit_icon}/></ImgBtn>
                 <button className='delete-btn' onClick={handlDelete}><FaTrashAlt className={styles.delete_icon}/></button>

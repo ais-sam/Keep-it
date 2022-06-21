@@ -1,21 +1,12 @@
-import React ,{useContext, useState,createContext} from 'react'
+import React ,{useContext} from 'react'
 import styles from "./NoteList.module.css"
 import { NoteContext } from '../../Pages/User/User'
-import {MdDeleteForever} from 'react-icons/md'
 import { FaEdit,FaTrashAlt } from "react-icons/fa";
-// import eggs from '../../imgs/eggs.jpeg'
-// import Button from '../Input/Button'
-// import Editnote from '../Editnote/Editnote'
-// import Modal from '../Modal/Modal'
 
-export const noteContext = createContext('')
 
 
 export default function Note({note}) {
-    const {notes,setNotes,edit,setEdit,NoteToEdit,setNoteToEdit} = useContext(NoteContext)
-    // const [edit,setEdit] = useState(false)
-    // const [title,setTitle] = useState(title)
-    // const [desc,setDesc] = useState(description)
+    const {notes,setNotes,setEdit,setNoteToEdit} = useContext(NoteContext)
 
     // Delete notes
     const handlDelete=(deletedId)=>{
@@ -36,7 +27,7 @@ export default function Note({note}) {
     <div className={styles.note}>
         <div className={styles.note__content}>
             <div className={styles.note__img}>
-                <img  src={note.image}/>
+                <img  src={note.image} alt={note.image && `note`}/>
             </div>
             <h2 className={styles.note__title}>{note.title}</h2>
             <p className={styles.note__description}>{note.text}</p>
@@ -47,10 +38,6 @@ export default function Note({note}) {
         </div>
         
     </div>
-    <noteContext.Provider value={{notes,setNotes,edit,setEdit,note}}>
-            {/* {edit && <Editnote edit={handlEdit}/> } */}
-            {/* {edit && <Modal styles={{position:"absolute"}}/>} */}
-        </noteContext.Provider>
     </>
   )
 }

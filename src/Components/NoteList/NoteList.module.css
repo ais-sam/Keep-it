@@ -1,31 +1,11 @@
 
-/* .noteList{
-    margin-top: 2rem;
-    padding: 1rem;
-    display: grid;
-    grid-auto-rows: auto;
-    align-items: start;
-    background-color: red;
-    gap: 1rem;
-    margin: 2rem auto 0;
-    width: 100%;
-
-} */
 .noteList{
-    /* background-color: aqua; */
     margin-top: 2rem;
-    /* display: flex;
-    flex-wrap: wrap;
-    gap: 1rem; */
     display: grid;
-    /* grid-template-columns: 300px 300px 300px 300px; */
     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-
     grid-template-rows: auto;
     gap: 1rem;
     padding: 0.5rem;
-    /* background-color: #EDE7EB; */
-    /* justify-content: center; */
 }
 
 .flexNotes{
@@ -34,15 +14,6 @@
     grid-template-rows: auto;
     gap: 1rem;
     padding: 0.5rem;
-    /* justify-content: center; */
-
-
-    /* max-width: 600px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1rem; */
 }
 @media screen and (max-width:710px) {
     .flexNotes{
@@ -56,53 +27,23 @@
         grid-template-rows: auto auto;
     }
 }
-
-
-
-
 .note{
     padding: 0.5rem;
     background-color: white;
     border-radius: 4px;
-    /* width: fit-content; */
-    /* width: 300px; */
     min-height: 280px;
-    /* height: fit-content; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0px 8px 15px -3px rgba(0,0,0,0.1);
-
-    
 }
 
-/* .flexNotes .note{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 280px;
-} */
-
-/* .onenote{
-    padding: 0.5rem;
-    background-color: white;
-    border-radius: 4px;
-    min-height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 300px;
-} */
 
 .note__img{
     margin-bottom: 0.5rem;
 }
 
 .note__img img{
-    /* width: 100%; */
-    /* max-height: 100%; */
-    /* max-height: 300px; */
     max-width: 100%;
     object-fit: fill;
     display: block;
@@ -114,7 +55,6 @@
     white-space: pre-wrap;
 }
 .note__footer{
-    /* margin-top: 1rem; */
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -126,9 +66,6 @@
     cursor: pointer;
 }
 
-.delete-icon{
-    
-}
 
 @media screen and (max-width:299px) {
     .note{
@@ -138,24 +75,14 @@
 
 .note__title{
     margin-bottom: 0.5rem;
-
 }
 
-/* .note__footer .edit_btn{
-    background-color: #FF6A3D;
-    color: white;
-    padding: 0.3rem 0.6rem;
-    border-radius: 3px;
-    cursor: pointer;
-
-} */
 
 .modaal{
     color: red;
 }
 
 .edit_icon{
-    /* background-color: red; */
     font-size: 1rem;
     color: #FF6A3D;
 }

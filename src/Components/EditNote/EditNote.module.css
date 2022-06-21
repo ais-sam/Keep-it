@@ -50,10 +50,7 @@
 }
 
 .edit .edit__btns{
-    /* margin-top: 1rem; */
     position: absolute;
-    /* bottom: 5px;
-    right: 5px; */
     bottom: 0;
     cursor: pointer;
     background-color: #ff6a3daf;
@@ -97,10 +94,6 @@
     cursor: pointer;
 }
 
-/* .exit_icon{
-    font-weight:lighter;
-    color: red;
-} */
 
 .img_btn{
     padding: 0.2rem 0.5rem;

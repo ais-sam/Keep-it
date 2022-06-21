@@ -6,8 +6,7 @@ export default function ImgBtn(props) {
     // Create a reference to the hidden file input element
     const hiddenFileInput = useRef(null)
 
-     // Programatically click the hidden file input element
-    // when the Add Button is clicked
+     // Programatically click the hidden file input element when the Add Button is clicked
     const handleClick = e => {
       e.preventDefault()
       hiddenFileInput.current.click();
@@ -17,7 +16,7 @@ export default function ImgBtn(props) {
   return (
     <>
       <label>
-        <button onClick={handleClick} className={ props.edit == "modal" ? styles.img_button_modal : styles.img_button}>
+        <button onClick={handleClick} className={ props.edit === "modal" ? styles.img_button_modal : styles.img_button}>
           {props.children}
         </button>
       </label>
